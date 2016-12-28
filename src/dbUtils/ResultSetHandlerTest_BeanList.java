@@ -33,6 +33,7 @@ public class ResultSetHandlerTest_BeanList {
 						System.out.println(result.get(i).toString());
 					}
 					System.out.println("记录总数：" + result.size());
+					 //关闭数据库连接 
 					DbUtils.closeQuietly(conn);
 				} catch (SQLException e) {
 					e.printStackTrace();

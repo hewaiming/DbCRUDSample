@@ -29,6 +29,7 @@ public class QueryRunnerTest {
 						System.out.println(aeTable);
 					}
 					System.out.println("记录总数："+list.size());
+					 //关闭数据库连接 
 					DbUtils.closeQuietly(conn);
 				} catch (SQLException e) {
 					e.printStackTrace();
