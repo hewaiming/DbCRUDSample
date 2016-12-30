@@ -11,9 +11,28 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 public class QueryRunnerTest {
 
 	public static void main(String[] args) {
-		findbyPotNo(2210);
+		//findbyPotNo(2210);
 		//findAll();
+		addUser();
 
+	}
+
+	private static void addUser() {
+		// 创建连接
+		Connection conn = ConnTools_otherSvr.makeConnection();
+		// 创建SQL执行工具
+		QueryRunner qRunner = new QueryRunner();
+		String ins_sql = "insert into OperaterTable (Name) values (?)"; 
+		try {
+			qRunner.update(conn, ins_sql,"gy");	
+			//qRunner.update(conn, ins_sql, yourname);
+			System.out.println("insert ok!");
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}finally {
+			DbUtils.closeQuietly(conn);
+		}
+		
 	}
 
 	private static void findbyPotNo(int potno) {
